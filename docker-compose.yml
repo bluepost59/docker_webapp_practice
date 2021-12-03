@@ -1,1 +1,10 @@
 version: '3'
+services:
+    app:
+        build:
+            context: app
+            dockerfile: dockerfile
+    reverse_proxy:
+        image: nginx
+    db:
+        image: mongo
