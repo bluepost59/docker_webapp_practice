@@ -4,7 +4,15 @@ services:
         build:
             context: app
             dockerfile: dockerfile
-    reverse_proxy:
-        image: nginx
+        volumes:
+            - ./app:/app
+        ports:
+            - 5000:5000
+        command: python3 /app/app.py
+            # reverse_proxy:
+            #     image: nginx
+
     db:
         image: mongo
+        volumes:
+            - ./db:/db
